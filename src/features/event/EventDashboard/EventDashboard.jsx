@@ -55,41 +55,41 @@ const eventsDashboard = [
 ]
 
 export default class EventDashboard extends Component {
-  constructor(props){
-      super(props)
-      this.state = {
-          events: eventsDashboard,
-          isOpen: false
-      }
-      this.handleFormOpen = this.handleFormOpen.bind(this);
-      this.handleCancel = this.handleCancel.bind(this);
+                 state = {
+                   events: eventsDashboard,
+                   isOpen: false
+                 };
 
-  }
+                 handleFormOpen = () => {
+                   this.setState({
+                     isOpen: true
+                   });
+                 };
 
-  handleFormOpen() {
-      this.setState({
-          isOpen: true
-      })
-  }
-
-  handleCancel() {
-    this.setState({
-        isOpen: false
-    })
-}
-    render() {
-    return (
-        <Grid>
-            <Grid.Column width={10}>
-                <EventList events={this.state.events}/>
-            </Grid.Column>
-            <Grid.Column width={6}>
-                <Button onClick={this.handleFormOpen} positive content="Create Event"/>
-                {this.state.isOpen && 
-                 <EventForm handleCancel={this.handleCancel}></EventForm>
-                }
-            </Grid.Column>
-        </Grid>
-    )
-  }
-}
+                 handleCancel = () => {
+                   this.setState({
+                     isOpen: false
+                   });
+                 };
+                 render() {
+                   return (
+                     <Grid>
+                       <Grid.Column width={10}>
+                         <EventList events={this.state.events} />
+                       </Grid.Column>
+                       <Grid.Column width={6}>
+                         <Button
+                           onClick={this.handleFormOpen}
+                           positive
+                           content="Create Event"
+                         />
+                         {this.state.isOpen && (
+                           <EventForm
+                             handleCancel={this.handleCancel}
+                           />
+                         )}
+                       </Grid.Column>
+                     </Grid>
+                   );
+                 }
+               }
