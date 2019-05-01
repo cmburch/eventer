@@ -13,6 +13,7 @@ class EventForm extends Component {
     }
     onFormSubmit = (evt)=> {
         evt.preventDefault();
+        this.props.createEvent(this.state.event);
         console.log(this.state.event);
     }
 
