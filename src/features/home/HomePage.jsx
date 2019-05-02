@@ -1,13 +1,27 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-class HomePage extends Component {
-  render() {
-    return (
-      <div>
-        <h1>Home Page</h1>
-      </div>
-    )
-  }
+const HomePage = ({history}) => {
+  return (
+    <div>
+          <div className="ui inverted vertical masthead center aligned segment">
+            <div className="ui text container">
+              <h1 className="ui inverted stackable header">
+                <img
+                  className="ui image massive"
+                  src="/assets/logo.png"
+                  alt="logo"
+                />
+                <div className="content">Eventer</div>
+              </h1>
+              <h2>Would you love to invite others to your events</h2>
+              <div onClick={() => history.push('/events')} className="ui huge white inverted button">
+                Get Started
+                <i className="right arrow icon" />
+              </div>
+            </div>
+          </div>
+        </div>
+  )
 }
 
 export default HomePage
