@@ -7,6 +7,7 @@ import { Segment,Form,Button,Grid,Header} from 'semantic-ui-react';
 import {createEvent,updateEvent} from '../eventActions';
 import TextInput from '../../../app/common/form/TextInput';
 import SelectInput from '../../../app/common/form/SelectInput';
+import DateInput from '../../../app/common/form/DateInput';
 import TextArea from '../../../app/common/form/TextArea';
 
 const mapState = (state, ownProps) => {
@@ -129,7 +130,10 @@ class EventForm extends Component {
               <Field
                 name="date"
                 type="text"
-                component={TextInput}
+                component={DateInput}
+                dateFormat='YYYY/MM/DD HH:mm'
+                timeFormat='HH:mm'
+                showTimeSelect
                 placeholder="Event Date"
               />
               <Button
