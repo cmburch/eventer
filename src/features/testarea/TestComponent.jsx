@@ -1,10 +1,14 @@
 import React, {Component} from 'react'
 import { connect } from "react-redux";
-import { Button, Icon } from "semantic-ui-react";
+// import { Button, Icon } from "semantic-ui-react";
+import { Button } from "semantic-ui-react";
 import {incrementCounter,decrementCounter} from './testActions';
 import Script from 'react-load-script';
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
-import GoogleMapReact from 'google-map-react';
+// import GoogleMapReact from 'google-map-react';
+import { openModal } from '../modals/modalActions'
+
+
 
 const mapState = (state) => ({
   data: state.test.data
@@ -12,10 +16,11 @@ const mapState = (state) => ({
 
 const actions = {
   incrementCounter,
-  decrementCounter
+  decrementCounter,
+  openModal
 }
 
-const Marker = () => <Icon name='marker' size='big' color='red' />
+// const Marker = () => <Icon name='marker' size='big' color='red' />
 class TestComponent extends Component {
 
 
@@ -51,7 +56,7 @@ class TestComponent extends Component {
       value: this.state.address,
       onChange: this.onChange
     };
-    const {incrementCounter,decrementCounter,data} = this.props;
+    const {incrementCounter,decrementCounter,data, openModal} = this.props;
     return (
     <div>
           {/* <Script
@@ -62,7 +67,7 @@ class TestComponent extends Component {
       <h3>The answer is : {data}</h3>
       <Button onClick={incrementCounter} color="green" content="Increment"></Button>
       <Button onClick={decrementCounter} color="red" content="Decrement"></Button>     
-    
+      <Button onClick={() => openModal('TestModal', {data: 34})} color="teal" content="Open Modal" />
       <br />
         <br />
         <form onSubmit={this.handleFormSubmit}>
@@ -72,7 +77,7 @@ class TestComponent extends Component {
         </form>
 
 
-        <div style={{ height: '300px', width: '100%' }}>
+        {/* <div style={{ height: '300px', width: '100%' }}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: 'AIzaSyDDbJKesrh4OcvDycewyQqYx5Kr5X4uvpE' }}
           defaultCenter={this.props.center}
@@ -84,7 +89,7 @@ class TestComponent extends Component {
             text="My Marker"
           />
         </GoogleMapReact>
-      </div>
+      </div> */}
     </div>
     )
   }

@@ -105,3 +105,12 @@ body {
   padding-bottom: 0 !important;
   padding-left: 2em !important;
 }
+
+/* CENTER THE MODAL */
+.ui.dimmer {
+  display: flex !important;
+}
+ 
+.ui.modal {
+  margin-top: 0;
+}
